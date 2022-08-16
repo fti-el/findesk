@@ -16,14 +16,17 @@ class PrioritySeeder extends Seeder
     {
         $Priority = ['Incident P1 (1 hour)', 'Incident P2 (2 hours)', 'Incident P4 (24 Hours)', 'Incident P3 (6 hours)', 
         'Incident P5 (48 Hours)', 'Request Sev 1 (24 hours)', 'Request Sev 2 (48 hours)', 'Request Sev 3 (72 hours)', 
-        'Request Sev 4 (2 weeks)', 'Request Sev 5 (30-60 days)', 'TBD'];
+        'Request Sev 4 (2 weeks)', 'Request Sev 5 (30-60 days)', 'TBD', 'Others'];
 
-        $RequestType = ['Incident', 'Incident', 'Incident', 'Incident', 'Incident', 'Request', 'Request', 'Request', 'Request', 'Request', 'Incident/Request'];
+        $RequestType = ['Incident', 'Incident', 'Incident', 'Incident', 'Incident', 'Request', 'Request', 'Request', 'Request', 'Request', 'Incident/Request', 'Incident/Request'];
+
+        $ServiceHours = [1, 2, 6, 24, 48, 24, 48, 72, 336, 1140, 9999, 24];
 
         for($x = 0; $x<count($Priority); $x++) {
             $prio = new Priority;
             $prio->PriorityDescription = $Priority[$x];
             $prio->RequestType = $RequestType[$x];
+            $prio->ServiceHours = $ServiceHours[$x];
             $prio->save();
         }
     }
